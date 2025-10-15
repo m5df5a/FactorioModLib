@@ -10,7 +10,10 @@ if not LSlib.styles then require "styles" else
       name   = "LSlib_default_filler",
       parent = "frame",
 
-      padding = 0,
+      top_padding = 0,
+      bottom_padding = 0,
+      left_padding = 0,
+      right_padding = 0,
       horizontally_stretchable = "on",
 
       left_margin  = fillerStyle.left_margin ,
@@ -38,7 +41,7 @@ if not LSlib.styles then require "styles" else
       vertical_align = guiStyles["frame"].header_flow_style.vertical_align,
       vertically_stretchable = false,
       --top_margin     = -2,
-      bottom_padding = guiStyles["frame"].header_flow_style.bottom_padding - 2,
+      bottom_padding = (guiStyles["frame"].header_flow_style.bottom_padding or 0) - 2,
       horizontal_spacing = guiStyles["frame"].header_flow_style.horizontal_spacing,
     }
 
@@ -59,7 +62,7 @@ if not LSlib.styles then require "styles" else
     LSlib.styles.addWidgetStyle{ -- filler itself
       name   = "LSlib_default_draggable_header",
       parent = "LSlib_default_draggable_filler",
-      
+
       height = guiStyles["frame"]["header_filler_style"].height
     }
 
